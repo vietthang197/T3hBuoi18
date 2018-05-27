@@ -16,6 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider
+            android:authorities="com.tagroup.thangducanh.t3hbuoi18.EngineerProvider"
+            android:name="com.tagroup.thangducanh.t3hbuoi18.EngineerProvider"
+            android:enabled="true"
+            android:exported="true"/>
     </application>
 
 </manifest>

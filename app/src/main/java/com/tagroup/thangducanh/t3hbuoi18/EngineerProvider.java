@@ -34,7 +34,8 @@ public class EngineerProvider extends ContentProvider{
 
     @Override
     public boolean onCreate() {
-        sqLiteHelper = new EngineerSQLiteHelper(getContext());
+        mDataHelper = new EngineerSQLiteHelper(getContext());
+        sqLiteHelper = mDataHelper;
         return true;
     }
 
@@ -42,7 +43,7 @@ public class EngineerProvider extends ContentProvider{
     public Cursor query(Uri uri, String[] projection, String selection,
                         String[] selectionArgs, String sortOrder) {
 
-        SQLiteDatabase db = mDataHelper.getReadableDatabase(); // có thể dược dùng cả getWriteable
+        SQLiteDatabase db = mDataHelper.getWritableDatabase(); // có thể dược dùng cả getWriteable
         Cursor cursor = null;
         switch (mUriMatcher.match(uri)) {
             case ENGINEER:
